@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index</title>
     <link rel="stylesheet" href="../styles/style.css" />
+    <script type="module" src="../layout/header.js"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <app-header title="타이틀"></app-header>
+      <div id="container"></div>
+    </div>
 
     <!-- type="module" 필수 -->
     <script type="module">
       import { MenuList } from "../components/MenuList.js";
+      import { CheckboxList } from "../components/CheckboxList.js";
+      import { RadioList } from "../components/RadioList.js";
 
-      const app = document.querySelector("#app");
+      const container = document.querySelector("#container");
 
-      app.append(
+      container.append(
         MenuList({
           items: [
             { id: 1, label: "Home", icon: "🏠", href: "#home" },
@@ -39,6 +45,28 @@
               activeItems.map((i) => i.label)
             );
           },
+        }),
+
+        CheckboxList({
+          items: [
+            { label: "Check 1" },
+            { label: "Check 2", disabled: true },
+            { label: "Check 3" },
+          ],
+          onChange: (activeItems) =>
+            console.log(
+              "Checkbox:",
+              activeItems.map((i) => i.label)
+            ),
+        }),
+
+        RadioList({
+          items: [
+            { label: "Option 1" },
+            { label: "Option 2", disabled: true },
+            { label: "Option 3" },
+          ],
+          onChange: (item) => console.log("Radio:", item.label),
         })
       );
     </script>
