@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #ccc;
+}
+ul li {
+  list-style-type: none;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.menu li {
+  cursor: pointer;
+}
+
+.menu li.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.menu li.active > a {
+  background: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.menu li > a {
+  text-decoration: none;
+  color: inherit;
+}

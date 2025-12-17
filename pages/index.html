@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <!-- type="module" 필수 -->
+    <script type="module">
+      import { MenuList } from "../components/MenuList.js";
+
+      const app = document.querySelector("#app");
+
+      app.append(
+        MenuList({
+          items: [
+            { id: 1, label: "Home", icon: "🏠", href: "#home" },
+            { id: 2, label: "Profile", icon: "👤", href: "#profile" },
+            {
+              id: 3,
+              label: "Settings",
+              icon: "⚙️",
+              href: "#settings",
+              disabled: true,
+            },
+          ],
+          renderItem: (item) => `
+           <span class="icon">${item.icon}</span> 
+           <span class="label">${item.label}</span> 
+          `,
+          toggle: true, // 여기서 toggle 모드 활성화
+          onChange: (activeItems) => {
+            console.log(
+              "Active items:",
+              activeItems.map((i) => i.label)
+            );
+          },
+        })
+      );
+    </script>
+  </body>
+</html>
