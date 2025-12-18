@@ -5,16 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index</title>
     <link rel="stylesheet" href="../styles/style.css" />
-    <script type="module" src="../layout/header.js"></script>
+    <script type="module" src="../js/index.js"></script>
   </head>
   <body>
-    <div id="app">
-      <app-header title="타이틀"></app-header>
-      <div id="container"></div>
+    <div id="wrap">
+      <!-- layout-header -->
+      <layout-header title="타이틀"></layout-header>
+      <!--// layout-header -->
+      <div id="container">
+        <!-- ui-tabs -->
+        <ui-tabs>
+          <div class="tab_menu">
+            <button class="tab_item">Menu1</button>
+            <button class="tab_item">Menu2</button>
+          </div>
+          <div class="tab_contents">
+            <div class="contents">Content1</div>
+            <div class="contents">Content2</div>
+          </div>
+        </ui-tabs>
+        <!--// ui-tabs -->
+
+        <!-- ui-checkbox -->
+        <ui-checkbox onChange="console.log(items)">
+          <ui-checkbox-item>Check 1</ui-checkbox-item>
+          <ui-checkbox-item>Check 2</ui-checkbox-item>
+          <ui-checkbox-item disabled>Check 3</ui-checkbox-item>
+        </ui-checkbox>
+
+        <!--// ui-checkbox -->
+
+        <!-- ui-radio -->
+        <ui-radio onChange="console.log(item)">
+          <ui-radio-item class="active">Option 1</ui-radio-item>
+          <ui-radio-item>Option 2</ui-radio-item>
+          <ui-radio-item disabled>Option 3</ui-radio-item>
+        </ui-radio>
+        <!--// ui-radio -->
+
+        <!-- ui-menu-list -->
+        <ui-menu-list toggle onChange="console.log(item)">
+          <ui-menu-item>menu 1</ui-menu-item>
+          <ui-menu-item>menu 2</ui-menu-item>
+          <ui-menu-item disabled>menu 3</ui-menu-item>
+        </ui-menu-list>
+        <!--// ui-menu-list -->
+      </div>
     </div>
 
     <!-- type="module" 필수 -->
-    <script type="module">
+    <!-- <script type="module">
       import { MenuList } from "../components/MenuList.js";
       import { CheckboxList } from "../components/CheckboxList.js";
       import { RadioList } from "../components/RadioList.js";
@@ -69,6 +109,6 @@
           onChange: (item) => console.log("Radio:", item.label),
         })
       );
-    </script>
+    </script> -->
   </body>
 </html>

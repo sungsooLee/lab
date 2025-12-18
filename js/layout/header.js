@@ -1,5 +1,5 @@
 customElements.define(
-  "app-header",
+  "layout-header",
   class extends HTMLElement {
     connectedCallback() {
       const title = this.getAttribute("title") ?? "";
