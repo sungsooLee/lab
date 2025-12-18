@@ -3,7 +3,7 @@ const components = {
   "ui-tabs": () => import("./components/tab.js"),
   "ui-checkbox": () => import("./components/checkbox.js"),
   "ui-radio": () => import("./components/radio.js"),
-  "ui-menu-list": () => import("./components/menu-list.js"),
+  "ui-menu": () => import("./components/menu-list.js"),
 };
 
 Object.entries(components).forEach(([tag, loader]) => {
